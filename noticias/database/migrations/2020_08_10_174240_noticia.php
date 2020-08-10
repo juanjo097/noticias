@@ -21,8 +21,7 @@ class Noticia extends Migration
             $table->string('summary');
             $table->string('content');
             $table->string('url_normalized');
-            $table->string('created_at');
-            $table->string('updated_at');
+            $table->timestamps();
         }
         );
 
