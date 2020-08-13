@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class NoticiasController extends BaseController
 {
-    public function processForm(Request $request)
+    public function search(Request $request)
     {
         $titulo  = $request->input('titulo');
 

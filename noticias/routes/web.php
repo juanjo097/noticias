@@ -33,4 +33,4 @@ Route::get('/noticia/{id}', function ($id)
     ['info' => $data]);
 });
 
-Route::get('/busqueda', 'NoticiasController@processForm')->name('noticias');
+Route::get('/busqueda', 'NoticiasController@search')->name('noticias');
