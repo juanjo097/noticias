@@ -21,5 +21,6 @@ class Noticia extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = ['title', 'summary',
-                           'content', 'url_normalized'];
+                           'content'];
+
 }

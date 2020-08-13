@@ -30,7 +30,7 @@ class NoticiaController extends AdminController
         $grid->column('title', __('Title'));
         $grid->column('summary', __('Summary'));
         $grid->column('content', __('Content'));
-        $grid->column('url_normalized', __('Url normalized'));
+        $grid->column('url_normalized', __('Url Normalized'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -51,7 +51,7 @@ class NoticiaController extends AdminController
         $show->field('title', __('Title'));
         $show->field('summary', __('Summary'));
         $show->field('content', __('Content'));
-        $show->field('url_normalized', __('Url normalized'));
+        $show->field('url_normalized', __('Url Normalized'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -67,10 +67,18 @@ class NoticiaController extends AdminController
     {
         $form = new Form(new Noticia());
 
-        $form->text('title', __('Title'));
-        $form->text('summary', __('Summary'));
-        $form->text('content', __('Content'));
-        $form->text('url_normalized', __('Url normalized'));
+        $form->text('title');
+        $form->text('summary');
+        $form->text('content');
+        $form->hidden('url_normalized');
+
+        // callback before save and save title as url
+        $form->saving(function (Form $form) 
+        {
+            $url_nrm = str_replace(' ', '-', $form->title);;
+
+            $form->url_normalized = $url_nrm;
+        });
 
         return $form;
     }
