@@ -9,6 +9,19 @@ $ cd noticias
 $ npm install && npm run dev
 ```
 
+### To create squema db noticias
+
+```sh
+$ cd noticias/sql
+$ mysql -u {user} -p < create_squema.sql
+
+```
+### To run migrations
+```sh
+$ php artisan migrate
+
+```
+
 ### Run and test
 
 ```sh
